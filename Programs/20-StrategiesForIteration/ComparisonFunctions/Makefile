@@ -4,9 +4,8 @@
 PROGRAMS = \
     TestComparisonFunctions
 
-ARCH = i386
-CPPOPTIONS = -IStanfordCPPLib -arch $(ARCH) -fvisibility-inlines-hidden
-LDOPTIONS = -LStanfordCPPLib -arch $(ARCH)
+CPPOPTIONS = -IStanfordCPPLib  -fvisibility-inlines-hidden
+LDOPTIONS = -LStanfordCPPLib 
 LIB = -lStanfordCPPLib
 
 # ***************************************************************
