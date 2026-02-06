@@ -11,6 +11,17 @@
             "preLaunchTask": "Build Current C++ File",
             "stdio": [null, null, null],
             "terminal": "integrated"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug with Make",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "Make Build",
+            "stdio": [null, null, null],
+            "terminal": "integrated"
         }
     ]
 }
