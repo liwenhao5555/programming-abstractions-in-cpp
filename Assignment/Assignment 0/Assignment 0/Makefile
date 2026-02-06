@@ -1,0 +1,33 @@
+# Makefile for Assignment 0
+#****************************************************************
+
+PROGRAMS = \
+    NameHash
+
+CPPOPTIONS = -IStanfordCPPLib  -fvisibility-inlines-hidden
+LDOPTIONS = -LStanfordCPPLib 
+LIB = -lStanfordCPPLib
+
+# ***************************************************************
+# Entry to bring the package up to date
+#    The "make all" entry should be the first real entry
+
+all: $(PROGRAMS)
+
+NameHash: NameHash.o
+	g++ $(LDOPTIONS) -o NameHash NameHash.o $(LIB)
+
+NameHash.o: NameHash.cpp
+	g++ $(CPPOPTIONS) -c NameHash.cpp
+
+
+# ***************************************************************
+# Standard entries to remove files from the directories
+#    tidy  -- eliminate unwanted files
+#    clean -- delete derived files in preparation for rebuild
+
+tidy:
+	rm -f ,* .,* *~ core a.out *.err
+
+clean scratch: tidy
+	rm -f *.o *.a $(PROGRAMS)

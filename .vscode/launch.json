@@ -11,6 +11,7 @@
             "preLaunchTask": "Build Current C++ File",
             "stdio": [null, null, null],
             "terminal": "integrated"
+            "env": { "NOCONSOLE": "true" },
         },
         {
             "type": "lldb",
@@ -22,6 +23,7 @@
             "preLaunchTask": "Make Build",
             "stdio": [null, null, null],
             "terminal": "integrated"
+            "env": { "NOCONSOLE": "true" },
         }
     ]
 }
