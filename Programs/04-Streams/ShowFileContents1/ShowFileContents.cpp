@@ -7,11 +7,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "filelib.h"
 using namespace std;
-
-/* Function prototypes */
-
-string promptUserForFile(ifstream & infile, string prompt = "");
 
 /* Main program */
 
@@ -25,5 +22,3 @@ int main() {
    infile.close();
    return 0;
 }
-
-# include "promptUserForFile-input.h"
