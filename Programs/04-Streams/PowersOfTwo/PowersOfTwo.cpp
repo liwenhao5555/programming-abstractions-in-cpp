@@ -48,8 +48,7 @@ int getInteger(string prompt) {
       cout << prompt;
       getline(cin, line);
       istringstream stream(line);
-      stream >> value >> ws;
-      if (!stream.fail() && stream.eof()) break;
+      if (stream >> value) break;
       cout << "Illegal integer format. Try again." << endl;
    }
    return value;
