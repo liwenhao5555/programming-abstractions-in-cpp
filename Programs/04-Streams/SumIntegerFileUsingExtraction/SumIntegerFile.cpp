@@ -10,14 +10,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <string>
-#include "error.h"
+#include "filelib.h"
 using namespace std;
-
-/* Function prototypes */
-
-string promptUserForFile(ifstream & infile, string prompt = "");
 
 /* Main program */
 
@@ -33,5 +28,3 @@ int main() {
    cout << "The sum is " << total << endl;
    return 0;
 }
-
-# include "promptUserForFile-input.h"
