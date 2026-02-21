@@ -11,12 +11,6 @@
 #include "vector.h"
 using namespace std;
 
-/* Function prototypes */
-
-void readEntireFile(istream & is, Vector<string> & lines);
-
-/* Main program */
-
 int main() {
    ifstream infile;
    Vector<string> lines;
@@ -28,5 +22,3 @@ int main() {
    }
    return 0;
 }
-
-# include "readEntireFile-code.h"

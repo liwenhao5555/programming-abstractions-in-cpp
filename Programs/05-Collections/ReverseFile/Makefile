@@ -17,7 +17,7 @@ all: $(PROGRAMS)
 ReverseFile: ReverseFile.o
 	g++ $(LDOPTIONS) -o ReverseFile ReverseFile.o $(LIB)
 
-ReverseFile.o: ReverseFile.cpp filelib.h
+ReverseFile.o: ReverseFile.cpp
 	g++ $(CPPOPTIONS) -c ReverseFile.cpp
 
 
