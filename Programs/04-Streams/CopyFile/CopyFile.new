@@ -4,26 +4,24 @@
  * This program creates a copy of an input file.
  */
 
-using namespace std;
 #include <iostream>
 #include <fstream>
-#include "simpio.h"
+#include <string>
+#include "filelib.h"
+using namespace std;
 
-/* Function prototypes */
-
-void copyStream(istream & is, ostream & os);
-
-/* Main program */
+void copyStream(istream & is, ostream & os) {
+   char ch;
+   while (is.get(ch)) os.put(ch);
+}
 
 int main() {
    ifstream infile;
    ofstream outfile;
-   getInputFile(infile, "Input file:  ");
-   getOutputFile(outfile, "Output file: ");
+   promptUserForFile(infile, "Input file:  ");
+   promptUserForFile(outfile, "Output file: ");
    copyStream(infile, outfile);
    infile.close();
    outfile.close();
    return 0;
 }
-
-# include "copyStream"

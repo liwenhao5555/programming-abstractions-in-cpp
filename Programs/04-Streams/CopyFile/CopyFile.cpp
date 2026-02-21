@@ -6,15 +6,14 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "filelib.h"
 using namespace std;
 
-/* Function prototypes */
-
-void copyStream(istream & is, ostream & os);
-string promptUserForFile(ifstream & infile, string prompt = "");
-string promptUserForFile(ofstream & outfile, string prompt = "");
-
-/* Main program */
+void copyStream(istream & is, ostream & os) {
+   char ch;
+   while (is.get(ch)) os.put(ch);
+}
 
 int main() {
    ifstream infile;
@@ -26,9 +25,3 @@ int main() {
    outfile.close();
    return 0;
 }
-
-# include "copyStream-code.h"
-
-# include "promptUserForFile-input.h"
-
-# include "promptUserForFile-output.h"
