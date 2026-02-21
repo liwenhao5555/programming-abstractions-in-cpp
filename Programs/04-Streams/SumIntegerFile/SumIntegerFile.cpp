@@ -17,9 +17,9 @@ using namespace std;
 
 /* Function prototypes */
 
+string promptUserForFile(ifstream & infile, string prompt = "");
 int stringToInteger(string str);
 string integerToString(int n);
-string promptUserForFile(ifstream & infile, string prompt = "");
 
 /* Main program */
 
@@ -29,11 +29,29 @@ int main() {
    int total = 0;
    string line;
    while (getline(infile, line)) {
+      if (line.empty()) continue;
       total += stringToInteger(line);
    }
    infile.close();
    cout << "The sum is " << integerToString(total) << endl;
    return 0;
+}
+
+/*
+ * Function: promptUserForFile (local; avoids linking filelib/strlib)
+ * Prompts for a filename until the file opens successfully.
+ */
+string promptUserForFile(ifstream & infile, string prompt) {
+   while (true) {
+      cout << prompt;
+      string filename;
+      getline(cin, filename);
+      infile.open(filename);
+      if (!infile.fail()) return filename;
+      infile.clear();
+      cout << "Unable to open that file.  Try again." << endl;
+      if (prompt == "") prompt = "Input file: ";
+   }
 }
 
 /*
@@ -48,10 +66,7 @@ int main() {
 int stringToInteger(string str) {
    istringstream stream(str);
    int value;
-   stream >> value >> ws;
-   if (stream.fail() || !stream.eof()) {
-      error("Illegal integer format: " + str);
-   }
+   if (!(stream >> value)) error("Illegal integer format: " + str);
    return value;
 }
 
@@ -67,5 +82,3 @@ string integerToString(int n) {
    stream << n;
    return stream.str();
 }
-
-# include "promptUserForFile-input.h"
