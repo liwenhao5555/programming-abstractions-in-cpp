@@ -63,8 +63,12 @@ string realToString(double d) {
 double stringToReal(string str) {
    istringstream stream(str);
    double value;
-   stream >> value >> ws;
-   if (stream.fail() || !stream.eof()) {
+   if (!(stream >> value)) {
+      error("stringToReal: Illegal floating-point format (" + str + ")");
+   }
+   string rest;
+   getline(stream, rest);
+   if (rest.find_first_not_of(" \t\n\r") != string::npos) {
       error("stringToReal: Illegal floating-point format (" + str + ")");
    }
    return value;
