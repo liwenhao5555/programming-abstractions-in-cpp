@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-   Lexicon english("EnglishWords.dat");
+   Lexicon english("EnglishWords.txt");
    string word = "xx";
    for (char c0 = 'a'; c0 <= 'z'; c0++) {
       word[0] = c0;
