@@ -26,7 +26,7 @@ bool isVowel(char ch);
 int main() {
    cout << "This program finds words that remain words"
         << " when translated to Pig Latin." << endl;
-   Lexicon english("EnglishWords.dat");
+   Lexicon english("EnglishWords.txt");
    foreach (string word in english) {
       string pig = wordToPigLatin(word);
       if (pig != word && english.contains(pig)) {
