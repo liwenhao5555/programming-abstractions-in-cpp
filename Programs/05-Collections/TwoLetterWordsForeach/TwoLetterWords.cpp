@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-   Lexicon english("EnglishWords.dat");
+   Lexicon english("EnglishWords.txt");
    foreach (string word in english) {
       if (word.length() == 2) {
          cout << word << endl;
