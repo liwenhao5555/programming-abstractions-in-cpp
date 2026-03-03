@@ -47,8 +47,12 @@ string integerToString(int n) {
 int stringToInteger(string str) {
    istringstream stream(str);
    int value;
-   stream >> value >> ws;
-   if (stream.fail() || !stream.eof()) {
+   if (!(stream >> value)) {
+      error("stringToInteger: Illegal integer format (" + str + ")");
+   }
+   string rest;
+   getline(stream, rest);
+   if (rest.find_first_not_of(" \t\n\r") != string::npos) {
       error("stringToInteger: Illegal integer format (" + str + ")");
    }
    return value;
