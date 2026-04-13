@@ -44,8 +44,12 @@ int getInteger(string prompt) {
       cout << prompt;
       getline(cin, line);
       istringstream stream(line);
-      stream >> value >> ws;
-      if (!stream.fail() && stream.eof()) break;
+      stream >> value;
+      if (!stream.fail()) {
+         string rest;
+         getline(stream, rest);
+         if (rest.find_first_not_of(" \t") == string::npos) break;
+      }
       cout << "Illegal integer format. Try again." << endl;
       if (prompt == "") prompt = "Enter an integer: ";
    }
@@ -59,8 +63,12 @@ double getReal(string prompt) {
       cout << prompt;
       getline(cin, line);
       istringstream stream(line);
-      stream >> value >> ws;
-      if (!stream.fail() && stream.eof()) break;
+      stream >> value;
+      if (!stream.fail()) {
+         string rest;
+         getline(stream, rest);
+         if (rest.find_first_not_of(" \t") == string::npos) break;
+      }
       cout << "Illegal numeric format. Try again." << endl;
       if (prompt == "") prompt = "Enter a number: ";
    }
