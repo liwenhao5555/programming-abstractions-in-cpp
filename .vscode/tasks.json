@@ -4,18 +4,8 @@
         {
             "label": "Build Current C++ File",
             "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g",
-                "-std=c++11",
-                "-Wall",
-                "-IStanfordCPPLib",
-                "-o",
-                "${fileBasenameNoExtension}",
-                "${file}",
-                "-LStanfordCPPLib",
-                "-lStanfordCPPLib"
-            ],
+            "command": "make",
+            "args": [],
             "options": {
                 "cwd": "${fileDirname}"
             },

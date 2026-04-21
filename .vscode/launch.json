@@ -10,8 +10,8 @@
             "cwd": "${fileDirname}",
             "preLaunchTask": "Build Current C++ File",
             "stdio": [null, null, null],
-            "terminal": "integrated"
-            "env": { "NOCONSOLE": "true" },
+            "terminal": "integrated",
+            "env": { "NOCONSOLE": "true" }
         }
     ]
 }

@@ -4,7 +4,7 @@
 PROGRAMS = \
     DeleteZeroElements
 
-CPPOPTIONS = -IStanfordCPPLib  -fvisibility-inlines-hidden
+CPPOPTIONS = -g -IStanfordCPPLib  -fvisibility-inlines-hidden
 LDOPTIONS = -LStanfordCPPLib 
 LIB = -lStanfordCPPLib
 
