@@ -17,7 +17,7 @@ Set<string> generatePermutations(string str);
 /* Main program */
 
 int main() {
-   Lexicon english("EnglishWords.dat");
+   Lexicon english("../../05-Collections/SetBasedLexicon/EnglishWords.txt");
    string letters = getLine("Enter the letters: ");
    cout << "The anagrams of " << letters << " are:" << endl;
    foreach (string word in generatePermutations(letters)) {
