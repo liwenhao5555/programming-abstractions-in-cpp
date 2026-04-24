@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+<rect width="100%" height="100%" fill="white" />
+<line x1="0" y1="74.8209" x2="85.2629" y2="74.8209" stroke="black" stroke-width="2" />
+<line x1="0" y1="163.83" x2="85.2629" y2="163.83" stroke="black" stroke-width="2" />
+<line x1="0" y1="244.08" x2="85.2629" y2="244.08" stroke="black" stroke-width="2" />
+<line x1="85.2629" y1="43.3571" x2="163.809" y2="43.3571" stroke="black" stroke-width="2" />
+<line x1="163.809" y1="89.3188" x2="249.445" y2="89.3188" stroke="black" stroke-width="2" />
+<line x1="163.809" y1="0" x2="163.809" y2="139.493" stroke="black" stroke-width="2" />
+<line x1="163.514" y1="139.493" x2="163.514" y2="223.181" stroke="black" stroke-width="2" />
+<line x1="119.033" y1="139.493" x2="119.033" y2="223.181" stroke="black" stroke-width="2" />
+<line x1="85.2629" y1="139.493" x2="249.445" y2="139.493" stroke="black" stroke-width="2" />
+<line x1="151.412" y1="223.181" x2="151.412" y2="300" stroke="black" stroke-width="2" />
+<line x1="85.2629" y1="223.181" x2="249.445" y2="223.181" stroke="black" stroke-width="2" />
+<line x1="249.445" y1="86.5857" x2="337.693" y2="86.5857" stroke="black" stroke-width="2" />
+<line x1="249.445" y1="137.901" x2="337.693" y2="137.901" stroke="black" stroke-width="2" />
+<line x1="426.308" y1="0" x2="426.308" y2="101.173" stroke="black" stroke-width="2" />
+<line x1="337.693" y1="101.173" x2="448.501" y2="101.173" stroke="black" stroke-width="2" />
+<line x1="337.693" y1="122.343" x2="448.501" y2="122.343" stroke="black" stroke-width="2" />
+<line x1="337.693" y1="0" x2="337.693" y2="183.079" stroke="black" stroke-width="2" />
+<line x1="448.501" y1="0" x2="448.501" y2="183.079" stroke="black" stroke-width="2" />
+<line x1="249.445" y1="275.831" x2="342.938" y2="275.831" stroke="black" stroke-width="2" />
+<line x1="342.938" y1="255.222" x2="437.059" y2="255.222" stroke="black" stroke-width="2" />
+<line x1="342.938" y1="183.079" x2="342.938" y2="300" stroke="black" stroke-width="2" />
+<line x1="437.059" y1="183.079" x2="437.059" y2="300" stroke="black" stroke-width="2" />
+<line x1="249.445" y1="183.079" x2="500" y2="183.079" stroke="black" stroke-width="2" />
+<line x1="249.445" y1="0" x2="249.445" y2="300" stroke="black" stroke-width="2" />
+<line x1="85.2629" y1="0" x2="85.2629" y2="300" stroke="black" stroke-width="2" />
+</svg>
