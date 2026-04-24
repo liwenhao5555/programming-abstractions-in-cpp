@@ -1,11 +1,11 @@
 /*
  * File: Mondrian.cpp
  * ------------------
- * This program prints the recursive split lines for a Mondrian-style
- * drawing so it can run without graphics.
+ * This program creates a line drawing in a style reminiscent of Mondrian.
  */
 
 #include <iostream>
+#include "gwindow.h"
 #include "random.h"
 using namespace std;
 
@@ -13,47 +13,42 @@ using namespace std;
 
 const double MIN_AREA = 10000;   /* Smallest square that will be split */
 const double MIN_EDGE = 20;      /* Smallest edge length allowed       */
-const double CANVAS_WIDTH = 500;
-const double CANVAS_HEIGHT = 300;
 
 /* Function prototypes */
 
-void subdivideCanvas(double x, double y, double width, double height);
+void subdivideCanvas(GWindow & gw, double x, double y,
+                                   double width, double height);
 
 /* Main program */
 
 int main() {
-   subdivideCanvas(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+   GWindow gw;
+   subdivideCanvas(gw, 0, 0, gw.getWidth(), gw.getHeight());
    return 0;
 }
 
 /*
  * Function: subdivideCanvas
- * Usage: subdivideCanvas(x, y, width, height);
- * -------------------------------------------
- * Decomposes the specified rectangular region recursively
+ * Usage: subdivideCanvas(gw, x, y, width, height);
+ * ------------------------------------------------
+ * Decomposes the specified rectangular region on the canvas recursively
  * by splitting that rectangle randomly along its larger dimension.  The
  * recursion continues until the area falls below the constant MIN_AREA.
  */
 
-void subdivideCanvas(double x, double y, double width, double height) {
+void subdivideCanvas(GWindow & gw, double x, double y,
+                                   double width, double height) {
    if (width * height >= MIN_AREA) {
       if (width > height) {
          double mid = randomReal(MIN_EDGE, width - MIN_EDGE);
-         subdivideCanvas(x, y, mid, height);
-         subdivideCanvas(x + mid, y, width - mid, height);
-         cout << "vertical line at x=" << x + mid
-              << " from y=" << y
-              << " to y=" << y + height
-              << endl;
+         subdivideCanvas(gw, x, y, mid, height);
+         subdivideCanvas(gw, x + mid, y, width - mid, height);
+         gw.drawLine(x + mid, y, x + mid, y + height);
       } else {
          double mid = randomReal(MIN_EDGE, height - MIN_EDGE);
-         subdivideCanvas(x, y, width, mid);
-         subdivideCanvas(x, y + mid, width, height - mid);
-         cout << "horizontal line at y=" << y + mid
-              << " from x=" << x
-              << " to x=" << x + width
-              << endl;
+         subdivideCanvas(gw, x, y, width, mid);
+         subdivideCanvas(gw, x, y + mid, width, height - mid);
+         gw.drawLine(x, y + mid, x + width, y + mid);
       }
    }
 }
