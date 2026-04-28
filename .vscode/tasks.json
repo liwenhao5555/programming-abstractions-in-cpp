@@ -20,6 +20,16 @@
                 "focus": false,
                 "panel": "shared"
             }
+        },
+        {
+            "label": "Clean Current Folder",
+            "type": "shell",
+            "command": "make",
+            "args": ["clean"],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": []
         }
     ]
 }
