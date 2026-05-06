@@ -7,7 +7,6 @@
 #include <iostream>
 #include <string>
 #include "direction.h"
-#include "gwindow.h"
 #include "maze.h"
 #include "point.h"
 using namespace std;
@@ -20,8 +19,7 @@ Point adjacentPoint(Point start, Direction dir);
 /* Main program */
 
 int main() {
-   GWindow gw;
-   Maze maze("SampleMaze.txt", gw);
+   Maze maze("SampleMaze.txt");
    if (solveMaze(maze, maze.getStartPosition())) {
       cout << "The marked path is a solution." << endl;
    } else {

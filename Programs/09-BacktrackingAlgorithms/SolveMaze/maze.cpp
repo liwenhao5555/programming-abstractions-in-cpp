@@ -19,6 +19,14 @@ using namespace std;
 
 static const double SQUARE_SIZE = 25;
 static const double MARK_SIZE = 7;
+static const double SVG_MARGIN = 10;
+
+static void writeSVGLine(ofstream & out, double x0, double y0,
+                         double x1, double y1, string color) {
+   out << "<line x1=\"" << x0 << "\" y1=\"" << y0
+       << "\" x2=\"" << x1 << "\" y2=\"" << y1
+       << "\" stroke=\"" << color << "\" stroke-width=\"2\" />\n";
+}
 
 /* Public entries */
 
@@ -33,6 +41,10 @@ Maze::Maze(string filename, GWindow & gw) {
    x0 = (gw.getWidth() - cols * SQUARE_SIZE) / 2;
    y0 = (gw.getHeight() - rows * SQUARE_SIZE) / 2;
    drawMaze();
+}
+
+Maze::~Maze() {
+   writeSVG("SolveMaze.svg");
 }
 
 Point Maze::getStartPosition() {
@@ -75,6 +87,35 @@ void Maze::unmarkSquare(Point pt) {
 bool Maze::isMarked(Point pt) {
    if (isOutside(pt)) error("Coordinates are out of range");
    return maze[pt.getY()][pt.getX()].marked;
+}
+
+void Maze::writeSVG(string filename) {
+   double width = cols * SQUARE_SIZE + 2 * SVG_MARGIN;
+   double height = rows * SQUARE_SIZE + 2 * SVG_MARGIN;
+   ofstream out(filename.c_str());
+   out << "<svg xmlns=\"http://www.w3.org/2000/svg\" "
+       << "width=\"" << width << "\" height=\"" << height << "\" "
+       << "viewBox=\"0 0 " << width << " " << height << "\">\n";
+   out << "<rect width=\"100%\" height=\"100%\" fill=\"white\" />\n";
+   for (int y = 0; y < rows; y++) {
+      for (int x = 0; x < cols; x++) {
+         Point pt(x, y);
+         double x0 = SVG_MARGIN + x * SQUARE_SIZE;
+         double y0 = SVG_MARGIN + y * SQUARE_SIZE;
+         if (wallExists(pt, NORTH)) writeSVGLine(out, x0, y0, x0 + SQUARE_SIZE, y0, "black");
+         if (wallExists(pt, EAST)) writeSVGLine(out, x0 + SQUARE_SIZE, y0, x0 + SQUARE_SIZE, y0 + SQUARE_SIZE, "black");
+         if (wallExists(pt, SOUTH)) writeSVGLine(out, x0, y0 + SQUARE_SIZE, x0 + SQUARE_SIZE, y0 + SQUARE_SIZE, "black");
+         if (wallExists(pt, WEST)) writeSVGLine(out, x0, y0, x0, y0 + SQUARE_SIZE, "black");
+         if (isMarked(pt)) {
+            double cx = x0 + SQUARE_SIZE / 2;
+            double cy = y0 + SQUARE_SIZE / 2;
+            double delta = MARK_SIZE / 2;
+            writeSVGLine(out, cx - delta, cy - delta, cx + delta, cy + delta, "red");
+            writeSVGLine(out, cx - delta, cy + delta, cx + delta, cy - delta, "red");
+         }
+      }
+   }
+   out << "</svg>\n";
 }
 
 /* Private methods */

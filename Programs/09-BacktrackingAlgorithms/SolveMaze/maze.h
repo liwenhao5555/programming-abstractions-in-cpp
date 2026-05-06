@@ -8,6 +8,7 @@
 #define _maze_h
 
 #include <string>
+#include "direction.h"
 #include "grid.h"
 #include "gwindow.h"
 #include "point.h"
@@ -45,6 +46,7 @@ public:
 
    Maze(std::string filename);
    Maze(std::string filename, GWindow & gw);
+   ~Maze();
 
 /*
  * Method: getStartPosition
@@ -137,6 +139,7 @@ private:
    void drawMarks();
    void drawMark(Point pt);
    void eraseMark(Point pt);
+   void writeSVG(std::string filename);
    Point adjacentPoint(Point start, Direction dir);
 
 };
