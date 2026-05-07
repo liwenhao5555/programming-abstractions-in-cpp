@@ -50,7 +50,7 @@ int fib(int n) {
  * -------------------------------------------
  * Returns the nth term in a general additive sequence in which
  *
- *     t(n) = t(n - 1) + t(n)
+ *     t(n) = t(n - 1) + t(n - 2)
  *
  * and the first two terms are t0 and t1.  This implementation is
  * more efficient than the most straightforward recursive strategy
