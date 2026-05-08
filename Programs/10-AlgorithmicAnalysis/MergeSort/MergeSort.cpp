@@ -78,4 +78,18 @@ void merge(Vector<int> & vec, Vector<int> & v1, Vector<int> & v2) {
    while (p2 < n2) vec.add(v2[p2++]);
 }
 
-# include "printVector-int-code.h"
+/*
+ * Function: printVector
+ * Usage: printVector(vec);
+ * ------------------------
+ * Prints the contents of the specified vector.
+ */
+
+void printVector(Vector<int> & vec) {
+   cout << "[";
+   for (int i = 0; i < vec.size(); i++) {
+      if (i > 0) cout << ", ";
+      cout << vec[i];
+   }
+   cout << "]" << endl;
+}
