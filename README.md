@@ -15,10 +15,3 @@ Self-study and code checks currently focus on chapters 1-10.
 ## Platform: Linux (Ubuntu 22.04, x86_64)
 
 **Ported from macOS:** removed `-arch i386` flags from all 177 Makefiles.
-
-### Development Tools
-
-- **Compiler:** gcc/g++ 11.4.0
-- **Debugger:** LLDB 14.0.0 (CodeLLDB extension)
-- **Language Server:** clangd 14.0.0
-- **Build System:** GNU Make 4.3
